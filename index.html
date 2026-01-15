@@ -4373,7 +4373,7 @@
 
 
                                                         <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-                                                            <div id="article-date" class="gb-headline gb-headline-7fa0a637 gb-headline-text">June 11, 2025</div>
+                                                            <div id="article-date" class="gb-headline gb-headline-7fa0a637 gb-headline-text js-sync-date">June 11, 2025</div>
                                                         </div>
                                                     </div>
 
@@ -6010,7 +6010,7 @@
                                                         <div class="gb-grid-column gb-grid-column-b2252352">
                                                             <div class="gb-container gb-container-b2252352">
 
-                                                                <div class="gb-headline gb-headline-7132370b gb-headline-text">June 11, 2025</div>
+                                                                <div class="gb-headline gb-headline-7132370b gb-headline-text js-sync-date">June 11, 2025</div>
 
                                                             </div>
                                                         </div>
@@ -6079,7 +6079,7 @@
                                                                         <div class="gb-grid-column gb-grid-column-ed35dca8">
                                                                             <div class="gb-container gb-container-ed35dca8">
 
-                                                                                <div class="gb-headline gb-headline-de996116 gb-headline-text">June 11, 2025</div>
+                                                                                <div class="gb-headline gb-headline-de996116 gb-headline-text js-sync-date">June 11, 2025</div>
 
                                                                             </div>
                                                                         </div>
@@ -7075,12 +7075,14 @@
     <script src="wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.5.1" id="generate-menu-js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var dateEl = document.getElementById('article-date');
-            if (!dateEl) return;
+            var dateEls = document.querySelectorAll('.js-sync-date');
+            if (!dateEls || dateEls.length === 0) return;
             var now = new Date();
             var options = { year: 'numeric', month: 'long', day: 'numeric' };
             var formatted = now.toLocaleDateString('en-US', options);
-            dateEl.textContent = formatted;
+            dateEls.forEach(function (el) {
+                el.textContent = formatted;
+            });
         });
     </script>
 
